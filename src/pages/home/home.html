@@ -7,5 +7,11 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
+ <div #map id="map"></div>
+  <ion-fab bottom left>
+    <button ion-fab color="danger" (click)="createJob()">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+  </ion-fab>
 </ion-content>
