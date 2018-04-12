@@ -13,26 +13,29 @@ import { AlertController } from 'ionic-angular';
 })
 export class CameraStudyComponent {
 
-  text: string;
-  hasImagem: boolean;
+  public images: String[];
 
   constructor(private camera: Camera, private alertCtrl: AlertController) {
-    this.hasImagem = false;
+    this.images = new Array<String>();
   }
 
+
   getPicture(){
+
     const options: CameraOptions = {
       quality: 100,
       destinationType: 1, 
       encodingType: this.camera.EncodingType.JPEG,
       mediaType: this.camera.MediaType.PICTURE
     }
+
     this.camera.getPicture(options).then((imageData) => {
-      this.hasImagem = true;
-      let imageSample = document.getElementById("imageSample");
-      let img = document.createElement("img");
-      img.src = imageData;
-      imageSample.appendChild(img);
+      this.images.push(imageData);
+      console.log(this.images);
+      // let imageSample = document.getElementById("imageSample");
+      // let img = document.createElement("img");
+      // img.src = imageData;
+      // imageSample.appendChild(img);
     }, (err) => {
       this.alertCtrl.create({
         title: "Ops!",
@@ -40,6 +43,7 @@ export class CameraStudyComponent {
         buttons: ["OK"]
       });
     })
+
   }
 
 }
