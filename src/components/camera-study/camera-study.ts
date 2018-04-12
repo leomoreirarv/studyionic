@@ -31,11 +31,6 @@ export class CameraStudyComponent {
 
     this.camera.getPicture(options).then((imageData) => {
       this.images.push(imageData);
-      console.log(this.images);
-      // let imageSample = document.getElementById("imageSample");
-      // let img = document.createElement("img");
-      // img.src = imageData;
-      // imageSample.appendChild(img);
     }, (err) => {
       this.alertCtrl.create({
         title: "Ops!",
